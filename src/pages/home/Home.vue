@@ -1,27 +1,23 @@
 <template>
   <div class="container">
-    home page
+    <Header/>
   </div>
 </template>
 
 <script>
+import Header from './components/Header'
 export default {
   data () {
     return {
 
     }
   },
-  created () {
-    console.log('created home')
-  },
   components: {
-
+    Header
   }
 }
 </script>
 
-<style scoped>
-  div {
-    text-align: center
-  }
+<style scoped lang='less'>
+
 </style>
