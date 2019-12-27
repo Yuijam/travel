@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+
 import 'styles/reset.css'
 // 移动端问题
 // 1像素边框问题
@@ -11,8 +13,11 @@ import 'styles/border.css'
 // <meta name="viewport" content="width=device-width user-scalable= 'no'">
 // 引入fastclick库解决
 import 'styles/iconfont.css'
+import 'swiper/dist/css/swiper.css'
 
 import fastClick from 'fastclick'
+
+Vue.use(VueAwesomeSwiper)
 
 Vue.config.productionTip = false
 fastClick.attach(document.body)
