@@ -1,6 +1,8 @@
 <template>
   <div class="container">
-    <swiper :options="swiperOption" >
+    <!-- 这里如果不写这个v-if，那么每次都是先展示最后一条数据，原因是一开始是空数组
+    所以这里让他数据加载完成才渲染，但是为什么空数组会导致这样就没查到了 -->
+    <swiper :options="swiperOption" v-if="showSwiper">
       <!-- slides -->
       <swiper-slide v-for="item of swiperList" :key="item.id">
         <img class="swiper-img" :src="item.imgUrl"/>
@@ -13,17 +15,20 @@
 
 <script>
 export default {
+  props: {
+    swiperList: Array
+  },
   data () {
     return {
       swiperOption: {
         pagination: '.swiper-pagination',
         loop: true // 循环轮播
-      },
-      swiperList: [
-        { id: '0001', imgUrl: 'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/201911/1d8faa9f4d49b77ca1e61e2b478260f7.jpg_750x200_25cf76e2.jpg' },
-        { id: '0002', imgUrl: 'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/201912/37c4edf7c033ada7b61a1f9d0acffd08.jpg_750x200_3223c943.jpg' },
-        { id: '0003', imgUrl: 'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/201912/d6df0db510d7b9aaa3d9ce4cffafeca1.jpg_750x200_abb38f14.jpg' }
-      ]
+      }
+    }
+  },
+  computed: {
+    showSwiper () {
+      return this.swiperList.length
     }
   },
   components: {}

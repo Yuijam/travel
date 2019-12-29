@@ -15,6 +15,9 @@ import 'styles/border.css'
 import 'styles/iconfont.css'
 import 'swiper/dist/css/swiper.css'
 
+import Mock from './mock'
+Mock.start()
+
 import fastClick from 'fastclick'
 
 Vue.use(VueAwesomeSwiper)

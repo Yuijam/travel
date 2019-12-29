@@ -3,7 +3,7 @@
     <div class="title">周末去哪儿</div>
     <ul>
       <!-- li 加一个border-bottom就能显示一个1像素的边框 -->
-      <li class="item border-bottom" v-for="item in recommendList" :key="item.id">
+      <li class="item border-bottom" v-for="item in weekendList" :key="item.id">
         <div class="item-img-wrapper">
           <img class="item-img" :src=item.imgUrl alt="">
         </div>
@@ -18,14 +18,12 @@
 
 <script>
 export default {
+  props: {
+    weekendList: Array
+  },
   data () {
     return {
-      recommendList: [
-        { id: '0001', imgUrl: 'http://img1.qunarzz.com/sight/source/1811/f3/86173f863bef61.jpg_r_640x214_52b003ac.jpg', title: '故宫', desc: '世界五大宫之首，穿越与您近在咫尺' },
-        { id: '0002', imgUrl: 'http://img1.qunarzz.com/sight/source/1811/f3/86173f863bef61.jpg_r_640x214_52b003ac.jpg', title: '故宫', desc: '世界五大宫之首，穿越与您近在咫尺' },
-        { id: '0003', imgUrl: 'http://img1.qunarzz.com/sight/source/1811/f3/86173f863bef61.jpg_r_640x214_52b003ac.jpg', title: '故宫', desc: '世界五大宫之首，穿越与您近在咫尺' },
-        { id: '0004', imgUrl: 'http://img1.qunarzz.com/sight/source/1811/f3/86173f863bef61.jpg_r_640x214_52b003ac.jpg', title: '故宫', desc: '世界五大宫之首，穿越与您近在咫尺' }
-      ]
+
     }
   },
   components: {
@@ -41,12 +39,12 @@ export default {
     line-height: .8rem;
     background: #eee;
     text-indent: .2rem;
-    margin-top: .2rem;
   }
   .item {
     .item-img-wrapper {
       height: 0;
-      padding-bottom: 33.4%;
+      // padding-bottom: 33.4375%;
+      padding-bottom: 37.09%;
       overflow: hidden;
     }
     .item-img {
