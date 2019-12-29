@@ -14,11 +14,10 @@ import 'styles/border.css'
 // 引入fastclick库解决
 import 'styles/iconfont.css'
 import 'swiper/dist/css/swiper.css'
+import fastClick from 'fastclick'
 
 import Mock from './mock'
 Mock.start()
-
-import fastClick from 'fastclick'
 
 Vue.use(VueAwesomeSwiper)
 
