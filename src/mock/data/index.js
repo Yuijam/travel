@@ -1,7 +1,6 @@
 /* eslint-disable */
 // import Mock from 'mockjs'
 export const homeData = {
-  city: '北京',
   swiperList: [
     { id: '0001', imgUrl: 'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/201911/1d8faa9f4d49b77ca1e61e2b478260f7.jpg_750x200_25cf76e2.jpg' },
     { id: '0002', imgUrl: 'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/201912/37c4edf7c033ada7b61a1f9d0acffd08.jpg_750x200_3223c943.jpg' },

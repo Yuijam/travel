@@ -15,6 +15,7 @@ import 'styles/border.css'
 import 'styles/iconfont.css'
 import 'swiper/dist/css/swiper.css'
 import fastClick from 'fastclick'
+import store from './store'
 
 import Mock from './mock'
 Mock.start()
@@ -25,5 +26,6 @@ Vue.config.productionTip = false
 fastClick.attach(document.body)
 new Vue({
   render: h => h(App),
+  store,
   router
 }).$mount('#app')
