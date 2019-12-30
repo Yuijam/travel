@@ -1,6 +1,17 @@
 <template>
   <ul class="list">
-    <li class="item" v-for="(city, key) in cities" :key="key">{{key}}</li>
+    <li
+      class="item"
+      v-for="l in letters"
+      :key="l"
+      :ref="l"
+      @click="handleClickLetter"
+      @touchstart='handleTouchStart'
+      @touchmove='handleTouchMove'
+      @touchend='handleTouchEnd'
+    >
+      {{l}}
+    </li>
   </ul>
 </template>
 
@@ -9,9 +20,50 @@ export default {
   props: {
     cities: Object
   },
+  computed: {
+    letters () {
+      const letters = []
+      for (let i in this.cities) {
+        letters.push(i)
+      }
+      return letters
+    }
+  },
   data () {
     return {
-
+      touchStatus: false,
+      startY: 0
+    }
+  },
+  // 第一次渲染是拿的空对象，当拿到数据再更新完毕的时候计算一次startY
+  updated () {
+    this.startY = this.$refs['A'][0].offsetTop
+  },
+  methods: {
+    handleClickLetter (event) {
+      this.$emit('change', event.target.innerText)
+    },
+    handleTouchStart () {
+      this.touchStatus = true
+    },
+    handleTouchMove (e) {
+      if (this.touchStatus) {
+        // 用timer做一个函数节流，避免过多的调用，测试了下，这样确实能减少很多次调用
+        if (this.timer) {
+          clearTimeout(this.timer)
+        }
+        this.timer = setTimeout(() => {
+          const touchY = e.touches[0].clientY - 79
+          const index = Math.floor((touchY - this.startY) / 20) // 字母高度为20
+          console.log(index)
+          if (index >= 0 && index < this.letters.length) {
+            this.$emit('change', this.letters[index])
+          }
+        }, 16)
+      }
+    },
+    handleTouchEnd () {
+      this.touchStatus = false
     }
   },
   components: {
