@@ -6,3 +6,7 @@ export const getHomeData = params => {
 export const getCityData = params => {
   return axios.get(`/cityData`, { params })
 }
+
+export const getDetailData = params => {
+  return axios.get(`/detailData`, { params })
+}

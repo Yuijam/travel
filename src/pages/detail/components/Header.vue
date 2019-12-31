@@ -9,7 +9,7 @@
       <div class="iconfont header-abs-back">&#xe624;</div>
     </router-link>
     <div class="header-fixed" v-show="!showAbs" :style="opacityStyle">
-      <div class="iconfont header-fixed-back-icon">&#xe624;</div>
+      <router-link class="iconfont header-fixed-back-icon" to="/">&#xe624;</router-link>
       景点详情
     </div>
   </div>
@@ -28,7 +28,6 @@ export default {
   methods: {
     handleScroll () {
       const top = document.documentElement.scrollTop
-      console.log(top)
       if (top > 60) {
         let opacity = top / 140
         opacity = opacity > 1 ? 1 : opacity

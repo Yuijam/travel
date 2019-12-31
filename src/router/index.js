@@ -19,5 +19,15 @@ export default new Router({
       path: '/detail/:id',
       component: Detail
     }
-  ]
+  ],
+  // 这个用来设置每次进入新的路由都从滚动到最开始
+  // 说是比如在home页面滚动到下面一点的地方，然后进入新的路由，
+  // 会发现这个页面滚动到下面某个地方了
+  // 但是我这边没加这个好像也没问题
+  scrollBehavior (to, from, savedPosition) {
+    return {
+      x: 0,
+      y: 0
+    }
+  }
 })
