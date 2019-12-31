@@ -42,7 +42,12 @@ export default {
     }
   },
   activated () {
+    // 这个绑定是对全局的绑定，不是对单独某个组件的绑定
+    // 因此即使切换到别的组件了，依然在监听着这个事件，造成内存泄漏
     window.addEventListener('scroll', this.handleScroll)
+  },
+  deactivated () {
+    window.removeEventListener('scroll', this.handleScroll)
   },
   components: {
 
