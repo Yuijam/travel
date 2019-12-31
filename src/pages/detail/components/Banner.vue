@@ -1,0 +1,83 @@
+<template>
+  <div>
+    <div class="container" @click="handleClickImg">
+      <img class='banner-img' src="http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_600x330_f922b488.jpg"/>
+      <div class="banner-info">
+        <div class="banner-title">
+          故宫(AAAAA景区)
+        </div>
+        <div class="banner-number">
+          <span class="iconfont banner-icon">&#xe638;</span>
+          39
+        </div>
+      </div>
+    </div>
+    <common-gallery :imgs='imgs' v-show="showGallery" @close='handleClose'></common-gallery>
+  </div>
+</template>
+
+<script>
+import CommonGallery from 'common/gallery/Gallery'
+export default {
+  data () {
+    return {
+      imgs: [
+        'http://img1.qunarzz.com/sight/p0/1909/4e/4e1afc2e1133ade7a3.img.jpg_r_800x800_d3eb324d.jpg',
+        'http://img1.qunarzz.com/sight/p0/1907/e4/e4a734b0c3fb9598a3.img.jpg_r_800x800_ddb72294.jpg'
+      ],
+      showGallery: false
+    }
+  },
+  methods: {
+    handleClickImg () {
+      this.showGallery = true
+    },
+    handleClose () {
+      this.showGallery = false
+    }
+  },
+  components: {
+    CommonGallery
+  }
+}
+</script>
+
+<style scoped lang="less">
+  .container {
+    overflow: hidden;
+    height: 0;
+    padding-bottom: 55%;
+    position: relative;
+    .banner-img {
+      width: 100%;
+    }
+    .banner-info {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      display: flex;
+      color: #fff;
+      line-height: .6rem;
+      // 渐变色背景，从top开始
+      background-image: linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
+      .banner-title {
+        flex: 1;
+        font-size: .32rem;
+        padding: 0 .2rem;
+      }
+      .banner-number {
+        height: .32rem;
+        line-height: .32rem;
+        margin-top: .14rem;
+        padding: 0 .4rem;
+        border-radius: .2rem;
+        background: rgba(0, 0, 0, .8);
+        font-size: .24rem;
+        .banner-icon {
+          font-size: .24rem;
+        }
+      }
+    }
+  }
+</style>
