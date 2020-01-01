@@ -9,14 +9,18 @@ export default new Router({
   routes: [
     {
       path: '/',
+      // 异步组件，项目比较小的时候没有必要这样做
+      // component: () => import('@/pages/home/Home')
       component: Home
     },
     {
       path: '/city',
+      // component: () => import('@/pages/city/City')
       component: City
     },
     {
       path: '/detail/:id',
+      // component: () => import('@/pages/detail/Detail')
       component: Detail
     }
   ],
